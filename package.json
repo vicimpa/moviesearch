@@ -1,0 +1,29 @@
+{
+  "name": "movie_search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@types/mini-css-extract-plugin": "^0.2.1",
+    "@types/node": "^12.6.8",
+    "@types/react": "^16.7.6",
+    "@types/react-dom": "^16.0.9",
+    "@types/webpack": "^4.4.19",
+    "@types/webpack-dev-server": "^3.1.7",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.4.2",
+    "typescript": "^2.9.2",
+    "webpack": "^4.15.1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "lib": "file:lib"
+  }
+}

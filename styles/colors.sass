@@ -1,0 +1,21 @@
+@each $name, $color in $colors
+  .text-#{$name}
+    color: $color
+
+    *, *::placeholder
+      color: $color
+
+  .bg-#{$name}
+    background-color: $color
+
+@each $name, $light in $grays
+  @if '#{$name}' != 'gray'
+    $name: 'gray-#{$name}'
+
+  $color: lighten($base, $light)
+
+  .text-#{$name}
+    color: $color
+
+  .bg-#{$name}
+    background-color: lighten($color, 15%)

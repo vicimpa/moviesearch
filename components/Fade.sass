@@ -1,0 +1,48 @@
+@import 'FadeVari' 
+
+$a: 0.3s
+$a-time: #{$a}s 
+
+[class*=show-c]
+  overflow: hidden
+
+@each $n, $sn in $directions
+  $a-name: to_#{$n}
+  $a-name-d: done_#{$n}
+
+  .show-#{$n}-enter
+    display: inherit
+
+  .show-#{$n}-enter-active
+    animation: $a-name $a-time both
+
+  .show-#{$n}-enter-done
+    display: inherit
+    animation: none
+
+  .show-#{$n}-exit
+    display: inherit
+
+  .show-#{$n}-exit-active
+    animation: $a-name-d $a-time both
+
+  .show-#{$n}-exit-done
+    display: none
+    animation: none
+
+  @keyframes to_#{$n}
+    0%
+      opacity: 0
+      margin-#{$sn}: -60%
+
+    100%
+      opacity: 1
+      margin-#{$sn}: 0%
+  @keyframes done_#{$n}
+    0%
+      opacity: 1
+      margin-#{$sn}: 0%
+
+    100%
+      opacity: 0
+      margin-#{$sn}: -60%
