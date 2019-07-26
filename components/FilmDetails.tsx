@@ -18,7 +18,7 @@ export const FilmDetails = ({elem = 0}) => {
 
   let { backdrop_path: bp } = data
   let { poster_path: pp } = data
-  let back = 'http://image.tmdb.org/t/p/w500' + (bp || pp)
+  let back = 'http://image.tmdb.org/t/p/original' + (bp || pp)
   let image = 'http://image.tmdb.org/t/p/w500' + (pp || bp)
   let haveImage = bp || pp
 

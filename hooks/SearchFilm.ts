@@ -80,7 +80,7 @@ export const useSearchFilms = (result: string, page: number = 1) => {
 
     let time = setTimeout(() => {
       xhr.send()
-    }, 500)
+    }, 50)
 
     return () => {
       xhr.abort()

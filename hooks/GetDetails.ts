@@ -80,7 +80,7 @@ export const useGetDetails = (id: number) => {
 
     let time = setTimeout(() => {
       xhr.send()
-    }, 500)
+    }, 50)
 
     return () => {
       clearTimeout(time)

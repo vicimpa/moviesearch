@@ -31,6 +31,8 @@ export const Result = () => {
     setScroll(scrollHeight - scrollTop)
   }
 
+  const loadhandle = () => setCan(true)
+
   useEffect(() => {
     if (!result)
       setSidebar(null)
@@ -58,7 +60,12 @@ export const Result = () => {
         <div className={"cont full h-cont"}>
           <h3 className="title">Результаты поиска: "<small>{result}</small>"</h3>
           <div className="result-list full h-cont" onScroll={handleScroll}>
-            {repeat(nowTotal, (i) => <FilmsList onLoad={() => setCan(true)} key={`page-${i}`} result={result} viewPage={i + 1} />)}
+            {repeat(nowTotal, (i) => 
+              <FilmsList 
+                onLoad={loadhandle} 
+                key={`page-${i}`} 
+                result={result} 
+                viewPage={i + 1} />)}
           </div>
         </div>
       )}

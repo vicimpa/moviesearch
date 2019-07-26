@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./Main.sass";
 
-import { Filter } from "./FIlter";
+import { Filter } from "./Filter";
 import { Result } from "./Result";
 import { Sidebar } from "./Sidebar";
 

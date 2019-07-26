@@ -145,7 +145,7 @@ const Anim = (key: string, name: string) => {
     }
 
     get time() {
-      return this.props.time || 400
+      return this.props.time || 800
     }
 
     get show() {

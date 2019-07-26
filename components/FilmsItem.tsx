@@ -16,11 +16,12 @@ export const FilmsItem = ({ item }: { item: IDataResultItem }) => {
   let haveImage = bp || pp
   let { title, vote_average, release_date, original_language, original_title, id } = item
 
+  let handleset = () => setState(select == id ? null : id)
   return (
     <div className={"films-item c-3 text-white"}>
-      <div className="card">
+      <div className="card" onClick={handleset}>
         <div className="image" style={haveImage ? { backgroundImage: `url(${back})` } : null} />
-        <div className="info h-cont" onClick={() => setState(select == id ? null : id)} >
+        <div className="info h-cont" >
           <div>
             {haveImage && <img src={image} />}
           </div>
@@ -36,8 +37,8 @@ export const FilmsItem = ({ item }: { item: IDataResultItem }) => {
 
             <p><b>Рэйтинг:</b> {vote_average}</p>
           </div>
-          {select == id && <div className="select" />}
         </div>
+        {select == id && <div className="select" />}
       </div>
     </div>
   )

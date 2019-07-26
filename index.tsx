@@ -1,7 +1,7 @@
 import React from "react";
 import {render} from "react-dom";
 
-import "./index.sass"
+import "./index.sass";
 
 import { Main } from "./components/Main";
 
