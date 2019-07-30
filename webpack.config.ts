@@ -116,7 +116,7 @@ const plugins: Configuration['plugins'] = [
 
 const devServer: Configuration['devServer'] = {
   port: 8080,
-  host: '192.168.2.30',
+  // host: '192.168.2.30',
   // contentBase: './public',
   index: './index.html',
   // proxy: [

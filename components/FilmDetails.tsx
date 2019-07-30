@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./FilmDetails.sass";
+
 import { useGetDetails } from "../hooks/GetDetails";
 import { Loader } from "./Loader";
 

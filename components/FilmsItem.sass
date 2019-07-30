@@ -5,20 +5,22 @@
   align-content: space-between
   margin-bottom: 30px
 
-  padding: 10px
 
   $width: 100% / 5
   width: calc(#{$width} - 20px)
+  padding: 10px
   padding-bottom: 35%
 
   @media screen and (max-width: 1540px)
     $width: 100% / 4
     width: calc(#{$width} - 20px)
+    padding: 10px
     padding-bottom: 40%
 
   @media screen and (max-width: 1140px)
-    $width: 100% / 3
-    width: calc(#{$width} - 20px)
+    $width: 100% / 4
+    width: calc(#{$width} - 10px)
+    padding: 5px
     padding-bottom: 40%
 
     img
@@ -27,6 +29,7 @@
   @media screen and (max-width: 940px)
     $width: 100% / 2
     width: calc(#{$width} - 20px)
+    padding: 10px
     padding-bottom: 70%
 
     img
