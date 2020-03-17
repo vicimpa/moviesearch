@@ -10,10 +10,10 @@ export const Main = () => {
   return (
     <div className={"main-component v-cont"}>
       <div className={"h-cont"}>
-        <Filter />
+        {/* <Filter /> */}
         <Result />
       </div>
-      <Sidebar />
+      {/* <Sidebar /> */}
     </div>
   )
 }
