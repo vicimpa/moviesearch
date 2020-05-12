@@ -16,7 +16,7 @@ export const Result = () => {
   const { useState: useResult } = ResultStore
   const { useState: useTotal } = TotalSore
   
-  const [result] = useResult('star wars')
+  const [result] = useResult('')
   const [{ pages = 0 } = {}] = useTotal()
   const [delta, setScroll] = useState(200)
   const [nowTotal, setTotal] = useState(1)
