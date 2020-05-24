@@ -15,8 +15,10 @@ export const Result = () => {
   const { useState: useSidebar } = SidebarStore
   const { useState: useResult } = ResultStore
   const { useState: useTotal } = TotalSore
+  const save = localStorage.getItem('searchfilm')
   
-  const [result] = useResult('')
+  const [result] = useResult(save ? save : '')
+  localStorage.setItem('searchfilm', result)
   const [{ pages = 0 } = {}] = useTotal()
   const [delta, setScroll] = useState(200)
   const [nowTotal, setTotal] = useState(1)
