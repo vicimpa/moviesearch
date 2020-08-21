@@ -15,14 +15,16 @@ interface IResultProps {
   searchStart?: string
 }
 
-export const Result = ({searchStart = ''}: IResultProps) => {
+export const Result = ({ searchStart = '' }: IResultProps) => {
   const { useState: useSidebar } = SidebarStore
   const { useState: useResult } = ResultStore
   const { useState: useTotal } = TotalSore
   const save = localStorage.getItem('searchfilm')
-  
+
   const [result] = useResult(save ? save : searchStart)
+
   localStorage.setItem('searchfilm', result)
+
   const [{ pages = 0 } = {}] = useTotal()
   const [delta, setScroll] = useState(200)
   const [nowTotal, setTotal] = useState(1)
@@ -67,11 +69,11 @@ export const Result = ({searchStart = ''}: IResultProps) => {
         <div className={"cont full h-cont"}>
           <h3 className="title">Результаты поиска: "<small>{result}</small>"</h3>
           <div className="result-list full h-cont" onScroll={handleScroll}>
-            {repeat(nowTotal, (i) => 
-              <FilmsList 
-                onLoad={loadhandle} 
-                key={`page-${i}`} 
-                result={result} 
+            {repeat(nowTotal, (i) =>
+              <FilmsList
+                onLoad={loadhandle}
+                key={`page-${i}`}
+                result={result}
                 viewPage={i + 1} />)}
           </div>
         </div>
