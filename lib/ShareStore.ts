@@ -4,7 +4,7 @@ interface IState {
   [key: string]: any
 }
 
-export function createShareStore<T extends any>(initialState: T) {
+export function createShareStore<T = any>(initialState?: T) {
   let state = initialState
   let extend = null
   let initial = true

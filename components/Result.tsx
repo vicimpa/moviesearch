@@ -9,15 +9,19 @@ import { TotalSore } from "../hooks/SearchFilm";
 import { repeat } from "../lib/Utils";
 import { SidebarStore } from "./Sidebar";
 
-export const ResultStore = createShareStore(null)
+export const ResultStore = createShareStore('')
 
-export const Result = () => {
+interface IResultProps {
+  searchStart?: string
+}
+
+export const Result = ({searchStart = ''}: IResultProps) => {
   const { useState: useSidebar } = SidebarStore
   const { useState: useResult } = ResultStore
   const { useState: useTotal } = TotalSore
   const save = localStorage.getItem('searchfilm')
   
-  const [result] = useResult(save ? save : '')
+  const [result] = useResult(save ? save : searchStart)
   localStorage.setItem('searchfilm', result)
   const [{ pages = 0 } = {}] = useTotal()
   const [delta, setScroll] = useState(200)
