@@ -19,11 +19,21 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.4.2",
+    "ts-node": "^9.0.0",
     "typescript": "^2.9.2",
-    "webpack": "^4.15.1"
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "start": "http-server -c-1 .",
+    "start-dev": "webpack-dev-server",
+    "build": "webpack --prod",
+    "build-dev": "webpack"
   },
   "license": "ISC",
   "dependencies": {
+    "http-server": "^0.12.3",
     "lib": "file:lib"
   }
 }
