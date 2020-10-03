@@ -5,6 +5,13 @@
 
 ## Скриншоты
 
+<style>
+#readme img {
+  border: 2px solid black;
+  max-width: 600px!important;
+}
+</style>
+
 ![](screen/img1.png)
 ![](screen/img2.png)
 
