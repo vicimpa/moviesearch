@@ -5,8 +5,10 @@
 
 ## Скриншоты
 
-<img src="screen/img1.png" style="border: 1px solid black" />
-<img src="screen/img2.png" style="border: 4px solid black" />
+>
+> <kbd>![alt-text](screen/img1.png)</kbd>
+> <kbd>![alt-text](screen/img2.png)</kbd>
+>
 
 ## Онлайн демо
 Короче все [сюда](https://vicimpa.github.io/moviesearch)
