@@ -54,11 +54,11 @@ export const useGetDetails = (id: number) => {
     if(!id)
       return
 
-    let xhr = new XMLHttpRequest()
+      const xhr = new XMLHttpRequest()
 
-    let api = apiKey, base = baseApi
-    let mov = `/movie/${id}`
-    let url = `${base+mov+api}`
+    const api = apiKey, base = baseApi
+    const mov = `/movie/${id}`
+    const url = `${base+mov+api}`
 
     setData({load: false, data, error})
     xhr.open('GET', url, true)
@@ -71,14 +71,14 @@ export const useGetDetails = (id: number) => {
         return setData({load: true, error: true, data})
 
       try {
-        let parsedData = JSON.parse(xhr.response)
+        const parsedData = JSON.parse(xhr.response)
         setData({load: true, error: false, data: parsedData})
       }catch(e) {
         return setData({load: true, error: true, data})
       }
     }
 
-    let time = setTimeout(() => {
+    const time = setTimeout(() => {
       xhr.send()
     }, 50)
 

@@ -32,8 +32,8 @@ export const TotalSore = createShareStore({
 })
 
 export const useSearchFilms = (result: string, page: number = 1) => {
-  const {useState: useTotal} = TotalSore
-  const [{ total = 0, pages = 0 } = {}, setTotal] =  useTotal()
+  const { useState: useTotal } = TotalSore
+  const setTotal = useTotal()[1]
   const [{ load, data, error }, setState] = useState({
     load: false,
     data: <IDataResult>null,
@@ -41,7 +41,7 @@ export const useSearchFilms = (result: string, page: number = 1) => {
   })
 
   useEffect(() => {
-    if(page !== 1)
+    if (page !== 1)
       return
   }, [data])
 
@@ -49,11 +49,11 @@ export const useSearchFilms = (result: string, page: number = 1) => {
     if (!result)
       return
 
-    let xhr = new XMLHttpRequest()
-    let api = apiKey, base = baseApi
-    let mov = '/search/movie'
-    let qu = `&query=${result}&page=${page}`
-    let url = `${base}${mov}${api}${qu}`
+    const xhr = new XMLHttpRequest()
+    const api = apiKey, base = baseApi
+    const mov = '/search/movie'
+    const qu = `&query=${result}&page=${page}`
+    const url = `${base}${mov}${api}${qu}`
 
     setState({ load: true, data: null, error: false })
 
@@ -66,19 +66,18 @@ export const useSearchFilms = (result: string, page: number = 1) => {
       if (xhr.status !== 200)
         return setState({ load: false, data: null, error: true })
 
-      let data = xhr.response
 
       try {
-        let parsedData = JSON.parse(data)
-        let {total_pages: pages, total_results: total} = parsedData
-        setTotal({pages, total})
+        const parsedData = JSON.parse(xhr.response)
+        const { total_pages: pages, total_results: total } = parsedData
+        setTotal({ pages, total })
         setState({ load: false, data: parsedData, error: false })
       } catch (e) {
         return setState({ load: false, data: null, error: true })
       }
     }
 
-    let time = setTimeout(() => {
+    const time = setTimeout(() => {
       xhr.send()
     }, 50)
 
