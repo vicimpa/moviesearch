@@ -10,24 +10,30 @@
 > <kbd>![alt-text](screen/img2.png)</kbd>
 >
 
+## Изменения
+
+- Перешел с React на Preact
+- Обновил зависимости
+- Упростил сборку
+
 ## Онлайн демо
 Короче все [сюда](https://vicimpa.github.io/moviesearch)
 
 ## Для запуска в режиме отладки
 ```bash
-> npm install
-> npm run start-dev
+> make install
+> make start-dev
 ```
 
 ## Для запуска в режиме продакшен
 ```bash
-> npm install
-> npm run build
-> npm run start
+> make install
+> make build
+> make start
 ```
 
 ## Для запуска билда в режиме отладки
 ```bash
-> npm install
-> npm run build-dev
+> make install
+> make build-dev
 ```
