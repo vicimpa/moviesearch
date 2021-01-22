@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2019",
+    "module": "CommonJS",
     "jsx": "react",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "sourceMap": true
-  },
-  "exclude": ["node_modules"]
+  }
 }
