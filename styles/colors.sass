@@ -1,11 +1,11 @@
 @each $name, $color in $colors
-  .text-#{$name}
+  .text-#{"" + $name}
     color: $color
 
     *, *::placeholder
       color: $color
 
-  .bg-#{$name}
+  .bg-#{"" + $name}
     background-color: $color
 
 @each $name, $light in $grays
@@ -14,8 +14,8 @@
 
   $color: lighten($base, $light)
 
-  .text-#{$name}
+  .text-#{"" + $name}
     color: $color
 
-  .bg-#{$name}
+  .bg-#{"" + $name}
     background-color: lighten($color, 15%)
