@@ -1,4 +1,4 @@
-import { useEffect, useState, Dispatch } from "react";
+import { useEffect, useState, StateUpdater } from "preact/compat";
 
 interface IState {
   [key: string]: any
@@ -9,7 +9,7 @@ export function createShareStore<T = any>(initialState?: T) {
   let extend = null
   let initial = true
 
-  let listeners: Dispatch<T>[] = []
+  let listeners: StateUpdater<T>[] = []
 
   function getNew(newState: T): T {
     if(extend)

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "preact/compat";
 
 import "./Filter.sass";
 
@@ -20,7 +20,7 @@ export const Filter = () => {
             className="search" 
             autoFocus={true} 
             value={result} 
-            onChange={handleChange} />
+            onChange={handleChange as any} />
         </div>
       </div>
     </div>

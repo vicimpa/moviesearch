@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "preact/compat";
 import { apiKey, baseApi } from "../config";
 
 interface IResult {
