@@ -1,34 +1,12 @@
 import { join } from "path";
-import { DefinePlugin, Configuration, RuleSetRule } from "webpack";
-import * as MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { DefinePlugin, Configuration } from "webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const { stringify } = JSON
-const { argv, env } = process
+const { env } = process
 
-const testArg = (arg: string) =>
-    argv.indexOf(arg) !== -1
-
-const addDefaultImport = (object: any) => {
-  let outObject = {}
-
-  let func = ((val) => {
-    if(typeof val !== 'object')
-      return {default: val}
-
-    val.default = val
-    return val
-  }).toString()
-
-  for(let key in object) {
-    let val = object[key]
-    outObject[key] = `(${func})(${val})`
-  }
-
-  return outObject
-}
-
-const devMode = !testArg('--prod')
-const watchMode = testArg('--watch')
+const devMode = env.NODE_ENV != 'production'
+const watchMode = devMode
 
 const mode = env.NODE_ENV = devMode ?
     'development' :
@@ -65,7 +43,7 @@ const modules: Configuration['module'] = {
   rules: [
     {
       test: /\.(eot|woff|woff2|ttf|gif|svg|png|jpg)$/,
-      loader: {
+      use: {
         loader: 'file-loader',
         options: {
           regExp: /([a-z0-9]+)\/([a-z0-9\-\_]+)\/[a-z0-9\-\_]+\.[a-z]+$/i,
@@ -81,20 +59,19 @@ const modules: Configuration['module'] = {
       test: /\.scss|\.sass$/,
       use: [
         'style-loader',/**/
-        MiniCssExtractPlugin.loader,/**/
         "css-loader",
-        "sass-loader?outputStyle=compressed"
+        "sass-loader"
       ]
     }
   ]
 }
 
-const externals: Configuration['externals'] = addDefaultImport({
-  "react": "React",
-  "react-dom": "ReactDOM",
-  "react-transition-group": "ReactTransitionGroup",
-  "redux": "Redux"
-})
+const externals: Configuration['externals'] = {
+  // "react": "React",
+  // "react-dom": "ReactDOM",
+  // "react-transition-group": "ReactTransitionGroup",
+  // "redux": "Redux"
+}
 
 const plugins: Configuration['plugins'] = [
   new DefinePlugin({
@@ -105,26 +82,12 @@ const plugins: Configuration['plugins'] = [
       'TERM_PROGRAM_VERSION': stringify(env.TERM_PROGRAM_VERSION),
       'GDM_LANG': stringify(env.GDM_LANG)
     }
-  }),
-  new MiniCssExtractPlugin({
-    // Options similar to the same options in webpackOptions.output
-    // all options are optional
-    filename: '[name].css',
-    // chunkFilename: '[id].css',
   })
 ]
 
 const devServer: Configuration['devServer'] = {
   port: 8080,
-  // host: '192.168.1.12',
-  // contentBase: './public',
   index: './index.html',
-  // proxy: [
-  //   {
-  //     context: ['/api', '/socket', '/image', '/pdf'],
-  //     target: 'http://localhost:8081'
-  //   }
-  // ]
 }
 
 export {
